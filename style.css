@@ -15,7 +15,6 @@
   --keynote-ink: #ffffff;
   --focus: #c2410c;
   --max: 46rem;
-  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
@@ -73,7 +72,7 @@ a:hover { text-decoration-thickness: 2px; }
   gap: 0.5rem 1.5rem; padding-top: 1rem; padding-bottom: 1rem;
 }
 .site-name {
-  font-family: var(--serif); font-weight: 600; font-size: 1.25rem;
+  font-family: var(--sans); font-weight: 700; font-size: 1.2rem;
   color: var(--ink); text-decoration: none;
 }
 .site-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin: 0; padding: 0; }
@@ -86,9 +85,8 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* Page heading */
 main { padding: 3rem 0 4rem; }
-h1, h2, h3 { font-family: var(--sans); line-height: 1.25; }
-/* Serif is reserved for Laurie's name */
-.site-name, .name { font-family: var(--serif); }
+h1, h2, h3 { font-family: var(--sans); line-height: 1.2; }
+
 h1 { font-size: clamp(2rem, 5vw, 2.6rem); font-weight: 700; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
 .lede { color: var(--muted); font-size: 1.2rem; margin: 0 0 2.5rem; }
 h2 { font-size: 1.4rem; font-weight: 700; margin: 2.75rem 0 1rem; }
@@ -112,45 +110,9 @@ h2 { font-size: 1.4rem; font-weight: 700; margin: 2.75rem 0 1rem; }
 .roles li + li { margin-top: 0.15rem; }
 .org { color: var(--muted); margin: 0; }
 
-.profile-links { list-style: none; padding: 0; margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
-.profile-links a {
-  display: inline-block; padding: 0.4rem 0.85rem; border: 1px solid var(--line);
-  border-radius: 999px; background: var(--surface); text-decoration: none;
-  font-size: 0.95rem; font-weight: 600;
-}
-.profile-links a:hover { border-color: var(--accent); background: var(--accent-soft); }
-
-/* Presentations */
-.talks { list-style: none; margin: 0; padding: 0; }
-.talk {
-  display: grid; grid-template-columns: 3.25rem 1fr; gap: 1rem;
-  padding: 1.1rem 1.25rem; margin-bottom: 0.9rem;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
-}
-.talk-month {
-  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--muted); padding-top: 0.25rem; border-right: 1px solid var(--line);
-}
-.talk h3 { font-family: var(--sans); font-size: 1.1rem; font-weight: 700; margin: 0 0 0.2rem; }
-.talk p { margin: 0; color: var(--muted); font-size: 1rem; }
-.talk .with { font-style: italic; }
-.tags { list-style: none; margin: 0.6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.tags li {
-  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
-  background: var(--tag-bg); color: var(--tag-ink); padding: 0.15rem 0.6rem; border-radius: 999px;
-}
-.tags li.keynote { background: var(--keynote-bg); color: var(--keynote-ink); }
-
-/* Publications */
-.pubs { list-style: none; margin: 0; padding: 0; }
-.pubs li { padding-left: 1.5rem; text-indent: -1.5rem; margin-bottom: 1rem; overflow-wrap: anywhere; }
-.pubs .note { display: block; text-indent: 0; margin-top: 0.3rem; color: var(--muted); font-size: 1rem; }
 
 /* About */
-.about-head { display: grid; gap: 1.5rem; align-items: start; margin-bottom: 1rem; }
-@media (min-width: 40rem) { .about-head { grid-template-columns: 1fr 10rem; } }
-.about-head .headshot { width: 10rem; height: 10rem; }
-.positions { list-style: none; padding: 0; margin: 0 0 0.5rem; }
+.positions { list-style: none; padding: 0; margin: 0 0 0.9rem; }
 .positions li { margin-bottom: 0.35rem; }
 .positions .dates { color: var(--muted); white-space: nowrap; }
 .edu { margin: 0; }
@@ -174,7 +136,7 @@ h2 { font-size: 1.4rem; font-weight: 700; margin: 2.75rem 0 1rem; }
 }
 .hero .name {
   font-size: clamp(2.75rem, 8vw, 4.5rem);
-  font-weight: 600; letter-spacing: -0.02em; line-height: 1.05;
+  font-weight: 700; letter-spacing: -0.02em; line-height: 1.05;
   margin: 0 0 1.5rem;
 }
 .hero .tagline { font-size: clamp(1.1rem, 2.4vw, 1.35rem); margin: 0 0 0.4rem; color: var(--ink); }
@@ -184,3 +146,82 @@ h2 { font-size: 1.4rem; font-weight: 700; margin: 2.75rem 0 1rem; }
   display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 1.05rem;
 }
 .hero-links a { font-weight: 600; }
+
+/* Header and footer: white, blending into the page */
+.site-header, .site-footer { background: var(--bg); }
+
+/* ---------- Card catalog cards ---------- */
+:root {
+  --card: #fbf8f1;
+  --card-edge: #e3dccd;
+  --card-ink: #23262b;
+  --card-muted: #4a4d52;
+  --card-red: #b3261e;
+  --type: "Courier Prime", "Courier New", Courier, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --card: #f3eee2; --card-edge: #d8cfbc; }
+}
+.cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+.card {
+  position: relative;
+  display: grid; grid-template-columns: 5rem 1fr; gap: 0 1.1rem;
+  padding: 1.5rem 1.75rem 2.6rem 1.25rem;
+  background: var(--card); color: var(--card-ink);
+  border: 1px solid var(--card-edge); border-radius: 3px;
+  box-shadow: 0 1px 0 #ebe4d5, 0 8px 16px -10px rgba(27, 36, 48, .35);
+  font-family: var(--type); font-size: 1rem; line-height: 1.5;
+}
+.card::after { /* the punched rod hole */
+  content: ""; position: absolute; left: 50%; bottom: .75rem;
+  width: .8rem; height: .8rem; margin-left: -.4rem; border-radius: 50%;
+  background: var(--bg); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+}
+.card-call {
+  font-family: var(--type); font-weight: 700; font-size: .85rem;
+  letter-spacing: .06em; text-transform: uppercase; line-height: 1.6;
+  border-right: 1.5px solid var(--card-red); padding-right: .5rem;
+}
+.card-call abbr { text-decoration: none; }
+.card-body { min-width: 0; }
+.card-body a { color: #1f4e8c; }
+.card-head {
+  font-family: var(--type); font-weight: 700; font-size: 1.05rem; line-height: 1.4;
+  color: var(--card-ink); margin: 0 0 .75rem; padding-bottom: .6rem;
+  border-bottom: 1.5px solid var(--card-red);
+}
+.card-head a { color: var(--card-ink); text-decoration-color: rgba(35, 38, 43, .35); }
+.card-head a:hover { color: #1f4e8c; }
+.card p { margin: 0 0 .2rem; color: var(--card-muted); overflow-wrap: anywhere; }
+.card .with { font-style: italic; }
+.card-doi { font-size: .9rem; }
+.card-note { margin-top: .6rem !important; }
+.card-subjects { margin-top: .9rem !important; font-size: .9rem; color: var(--card-ink) !important; }
+.card-tags { list-style: none; margin: .8rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem; }
+.card-tags li { font-weight: 700; font-size: .82rem; letter-spacing: .05em; text-transform: uppercase; }
+.card-tags li + li::before { content: "— "; }
+.card-tags li.keynote { color: var(--card-red); }
+@media (max-width: 34rem) {
+  .card { grid-template-columns: 1fr; padding: 1.25rem 1.25rem 2.5rem; }
+  .card-call { border-right: 0; padding: 0; margin-bottom: .6rem; }
+  .card-call br { display: none; }
+}
+
+/* About: author card with a clipped-on photo */
+.author-card { grid-template-columns: 5rem 1fr 8rem; margin-bottom: 1.5rem; }
+.card-photo {
+  width: 7.5rem; height: 9.4rem; object-fit: cover; object-position: 50% 25%;
+  border: 6px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.2); transform: rotate(2deg);
+  justify-self: end;
+}
+@media (max-width: 40rem) {
+  .author-card { grid-template-columns: 1fr; }
+  .card-photo { grid-row: 1; justify-self: start; margin-bottom: 1rem; }
+}
+.author-card .positions li { color: var(--card-ink); }
+
+/* Plain row of profile links (About page) — same style as the homepage links */
+.link-row { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 1.05rem; }
+.link-row a { font-weight: 600; }
+.author-card { grid-template-columns: 2.5rem 1fr 8rem; }
+@media (max-width: 40rem) { .author-card { grid-template-columns: 1fr; } .author-card .card-call { display: none; } }
