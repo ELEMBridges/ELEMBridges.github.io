@@ -2,18 +2,18 @@
    Colors meet WCAG AA contrast (most pairs AAA) in light and dark modes. */
 
 :root {
-  --bg: #fbfaf7;
-  --surface: #ffffff;
-  --ink: #1d2226;
-  --muted: #4d565d;
-  --line: #dcd8cf;
-  --accent: #0c5a5f;        /* deep teal: 7.6:1 on --bg */
-  --accent-soft: #e3efee;
-  --tag-bg: #f1ece2;
-  --tag-ink: #5b4424;
-  --keynote-bg: #0c5a5f;
+  --bg: #ffffff;
+  --surface: #f6f8fb;
+  --ink: #1b2430;
+  --muted: #4f5b69;
+  --line: #dde3ea;
+  --accent: #1f4e8c;        /* library navy: 8.2:1 on white */
+  --accent-soft: #e8eef7;
+  --tag-bg: #eef1f5;
+  --tag-ink: #2f3d4f;
+  --keynote-bg: #1f4e8c;
   --keynote-ink: #ffffff;
-  --focus: #b3541e;
+  --focus: #c2410c;
   --max: 46rem;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --sans: "Source Sans 3", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -21,18 +21,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #14191c;
-    --surface: #1b2226;
-    --ink: #e9ecee;
-    --muted: #b3bcc2;
-    --line: #2f393f;
-    --accent: #7fd1cf;
-    --accent-soft: #1e3335;
-    --tag-bg: #2c2a24;
-    --tag-ink: #e8d7b8;
-    --keynote-bg: #7fd1cf;
-    --keynote-ink: #0d1f21;
-    --focus: #f0a36f;
+    --bg: #111821;
+    --surface: #18212c;
+    --ink: #e8edf3;
+    --muted: #aeb9c6;
+    --line: #2a3644;
+    --accent: #8fb8ee;
+    --accent-soft: #1c2b3d;
+    --tag-bg: #223041;
+    --tag-ink: #d5dfeb;
+    --keynote-bg: #8fb8ee;
+    --keynote-ink: #0e1a2a;
+    --focus: #f59e62;
   }
 }
 
