@@ -1,0 +1,167 @@
+/* Laurie M. Bridges — site styles
+   Colors meet WCAG AA contrast (most pairs AAA) in light and dark modes. */
+
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --ink: #1d2226;
+  --muted: #4d565d;
+  --line: #dcd8cf;
+  --accent: #0c5a5f;        /* deep teal: 7.6:1 on --bg */
+  --accent-soft: #e3efee;
+  --tag-bg: #f1ece2;
+  --tag-ink: #5b4424;
+  --keynote-bg: #0c5a5f;
+  --keynote-ink: #ffffff;
+  --focus: #b3541e;
+  --max: 46rem;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14191c;
+    --surface: #1b2226;
+    --ink: #e9ecee;
+    --muted: #b3bcc2;
+    --line: #2f393f;
+    --accent: #7fd1cf;
+    --accent-soft: #1e3335;
+    --tag-bg: #2c2a24;
+    --tag-ink: #e8d7b8;
+    --keynote-bg: #7fd1cf;
+    --keynote-ink: #0d1f21;
+    --focus: #f0a36f;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+
+a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem;
+  background: var(--ink); color: var(--bg);
+  padding: 0.5rem 0.9rem; z-index: 10; border-radius: 4px;
+}
+.skip-link:focus { top: 1rem; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 1rem; }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
+.site-header .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.5rem 1.5rem; padding-top: 1rem; padding-bottom: 1rem;
+}
+.site-name {
+  font-family: var(--serif); font-weight: 600; font-size: 1.25rem;
+  color: var(--ink); text-decoration: none;
+}
+.site-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; margin: 0; padding: 0; }
+.site-nav a {
+  color: var(--muted); text-decoration: none; font-size: 1rem; font-weight: 600;
+  padding: 0.25rem 0; border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* Page heading */
+main { padding: 3rem 0 4rem; }
+h1, h2, h3 { font-family: var(--sans); line-height: 1.25; }
+/* Serif is reserved for Laurie's name */
+.site-name, .name { font-family: var(--serif); }
+h1 { font-size: clamp(2rem, 5vw, 2.6rem); font-weight: 700; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+.lede { color: var(--muted); font-size: 1.2rem; margin: 0 0 2.5rem; }
+h2 { font-size: 1.4rem; font-weight: 700; margin: 2.75rem 0 1rem; }
+
+/* Year dividers */
+.year {
+  display: flex; align-items: center; gap: 1rem;
+  font-family: var(--sans); font-size: 1.1rem; font-weight: 700; color: var(--ink);
+  margin: 2.5rem 0 1rem;
+}
+.year::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* Home */
+.intro { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 40rem) { .intro { grid-template-columns: 11rem 1fr; } }
+.headshot {
+  width: 11rem; height: 11rem; object-fit: cover; object-position: 50% 30%; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--accent-soft);
+}
+.roles { list-style: none; margin: 0 0 0.5rem; padding: 0; font-size: 1.15rem; }
+.roles li + li { margin-top: 0.15rem; }
+.org { color: var(--muted); margin: 0; }
+
+.profile-links { list-style: none; padding: 0; margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.profile-links a {
+  display: inline-block; padding: 0.4rem 0.85rem; border: 1px solid var(--line);
+  border-radius: 999px; background: var(--surface); text-decoration: none;
+  font-size: 0.95rem; font-weight: 600;
+}
+.profile-links a:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+/* Presentations */
+.talks { list-style: none; margin: 0; padding: 0; }
+.talk {
+  display: grid; grid-template-columns: 3.25rem 1fr; gap: 1rem;
+  padding: 1.1rem 1.25rem; margin-bottom: 0.9rem;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+}
+.talk-month {
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); padding-top: 0.25rem; border-right: 1px solid var(--line);
+}
+.talk h3 { font-family: var(--sans); font-size: 1.1rem; font-weight: 700; margin: 0 0 0.2rem; }
+.talk p { margin: 0; color: var(--muted); font-size: 1rem; }
+.talk .with { font-style: italic; }
+.tags { list-style: none; margin: 0.6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tags li {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--tag-bg); color: var(--tag-ink); padding: 0.15rem 0.6rem; border-radius: 999px;
+}
+.tags li.keynote { background: var(--keynote-bg); color: var(--keynote-ink); }
+
+/* Publications */
+.pubs { list-style: none; margin: 0; padding: 0; }
+.pubs li { padding-left: 1.5rem; text-indent: -1.5rem; margin-bottom: 1rem; overflow-wrap: anywhere; }
+.pubs .note { display: block; text-indent: 0; margin-top: 0.3rem; color: var(--muted); font-size: 1rem; }
+
+/* About */
+.about-head { display: grid; gap: 1.5rem; align-items: start; margin-bottom: 1rem; }
+@media (min-width: 40rem) { .about-head { grid-template-columns: 1fr 10rem; } }
+.about-head .headshot { width: 10rem; height: 10rem; }
+.positions { list-style: none; padding: 0; margin: 0 0 0.5rem; }
+.positions li { margin-bottom: 0.35rem; }
+.positions .dates { color: var(--muted); white-space: nowrap; }
+.edu { margin: 0; }
+.edu dt { font-weight: 700; margin-top: 1rem; }
+.edu dd { margin: 0; color: var(--muted); }
+.involve { padding-left: 1.2rem; }
+.involve li { margin-bottom: 0.5rem; }
+.involve .dates { color: var(--muted); }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); background: var(--surface); padding: 2rem 0; font-size: 0.95rem; color: var(--muted); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: space-between; }
+.site-footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin: 0; padding: 0; }
+.site-footer p { margin: 0; }
